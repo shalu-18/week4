@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<script src = "https:ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://kit.fontawesome.com/ab026326c7.js" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <title>welcome to the angularjs</title>
+    <style>
+
+.xyu{
+  display: grid;
+  margin-left: 50px;
+
+}
+
+.product-details{
+  width: 245px;
+  height: 150px;
+  background: #21222d;
+  padding: 8rem;
+  font-family: 'poppins', sans-serif;
+  color: #fff;
+}
+
+.product-img{
+  width: 500px;
+  height: 230px;
+  background: url('https://hotocameras.com/np_images/responsive_images/posts-canon_canonet_28-topview.png@462px.webp');
+
+}
+
+.ratting{
+  font-size: 2rem;
+  color: #FDCC0D;
+
+}
+.product-details p{
+  font-size: 1rem;
+  color: #5F5F6B;
+}
+.nme{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.img{
+  margin-top: 20px;
+  height: 230px;
+width: 400px;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM8F1d62qvmJ2ACUMSe77MeKCaG1coRKg4DtVqWq0jKObXsTQB7Ym2qXjetVgZsS3j8zc&usqp=CAU');
+  background-repeat: no-repeat;
+}
+.imgee{
+background:url('https://www.adorama.com/images/Large/inkd90kl2.jpg');
+margin-top: 20px;
+height: 300px;
+width: 500px;
+background-repeat: no-repeat;
+
+
+}
+  </style>
+
+  </head>
+  <body>
+
+
+
+  <div  class="xyu" ng-app="mymodule", ng-controller="mycontroller">
+
+  <div class="container">
+  <form name="rpage" novalidate>
+    <h3> Personal details </h3>
+  <label> First-Name</label>
+  <input  id="fname" type="text" name="fname" value="" ng-model="fname" required>
+  <span style="color:red" ng-show="rpage.fname.$invalid">
+  <span ng-show="rpage.fname.$error.required">Username is required. It cannot be blank</span>
+  </span>
+  <p style= "color:red" font-weight: bold;>{{erroemsg}}</p>
+  <br>
+  <label> Last-Name</label>
+  <input id="lname" type="text" name="lname" value="" ng-model="lname" required>
+  <span style="color:red" ng-show="rpage.lname.$invalid">
+  <span ng-show="rpage.lname.$error.required">User Lastname  is required. It cannot be blank</span>
+  </span>
+  <br><br>
+
+  <label> Email-Id</label>
+  <input id="email" type="email" name="email" value="" ng-model="email" required>
+  <span style="color:red" ng-show="rpage.email.$invalid">
+    <span ng-show="rpage.email.$error.required"> Email is required.It can not be blank</span>
+    <span ng-show="rpage.email.$error.email">Please Enter a valid Email </span>
+  </span>
+  <br><br>
+
+  <label>Password</label>
+  <input  id="psd"type="password" name="psd" value="" ng-model="psd" required>
+  <span style="color:red" ng-show="rpage.psd.$invalid">
+  <span ng-show="rpage.psd.$error.required"> password is required. it can not be blank </span>
+  </span>
+  <br><br>
+
+<label>DOB</label>
+  <input    type="date" name="dob" value="" ng-model="dob"><br><br>
+<label>State</label>
+<select><option ng-repeat="x in statelist">{{x}}</option>
+</select>
+<label>City</label>
+<select>
+  <option ng-repeat="y in Citylist">{{y}}</option>
+  <select>
+<br><br>
+<button ng-click="addrecords()"> Submit</button>
+
+</form>
+</div>
+
+<div class="login">
+<h2>Login page</h2>
+<label> First-Name</label>
+<input  id="fname1" type="text" name="fname1" value="" ng-model="fname1" required>
+<br><br>
+
+<label> Last-Name</label>
+<input id="lname1" type="text" name="lname1" value="" ng-model="lname1" required>
+<br><br>
+
+<label> Email-Id</label>
+<input id="email1" type="email" name="email1" value="" ng-model="email1" required>
+<br><br>
+
+<label>Password</label>
+<input  id="psd1"type="password" name="psd1" value="" ng-model="psd1" required>
+<br><br>
+<button ng-click="adds()">Login</button>
+<span ng-show="check" style="color: red">Login successful
+</span>
+<span ng-show="fail" style="color: red">Pls register or Enter correct details</span>
+
+  <br>
+
+
+
+</div>
+
+<div class="table">
+<h2>Records </h2>
+<table  border="1">
+<tr>
+    <td>First Name</td>
+    <td>Last Name </td>
+    <td>Email</td>
+    <td>Password</td>
+</tr>
+  <tr ng-repeat="  i  in  userlist">
+    <td>{{i.fname}}</td>
+    <td>{{i.lname}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.psd}}</td>
+
+  </tr>
+</table>
+
+</div>
+<h2>Prodect page</h2>
+<div class="container1">
+  <div class="product-img">
+  </div>
+<div class="product-details">
+<span class="nme">canon canonet</span>
+<div class="ratting">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star-half"></i>
+</div>
+<p>Copal SLV; B, 1 to 1/500 sec. Built-in self-timer. <br>
+  Time exposures with T ring set to B. M-X switchable sync contacts with German socket.</p>
+<div class="buttons">
+  <span class="Price">$ 50 </span>
+  <button class="btn chart">Buy Now</button>
+    <button class="btn bookmark"><i class="far fa-heart"></i></button>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="imgee">
+</div>
+<div class="product-details">
+<span class="nme">Nikon D90 DX</span>
+<div class="ratting">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star-half"></i>
+</div>
+<p>The Nikon D90 is an advanced digital single lens reflex (SLR) camera and is powered by Nikon EXPEED processor.<br>
+   The D90 has a 12.3 megapixel camera and a Nikon.</p>
+<div class="buttons">
+<span class="Price">$ 80 </span>
+<button class="btn chart">Buy Now</button>
+  <button class="btn bookmark"><i class="far fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="secondprodect">
+  <div class="img">
+  </div>
+  <div class="product-details">
+  <span class="nme">Instax mini 11</span>
+  <div class="ratting">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+
+  </div>
+  <p>Live Life and Play with five stylish colors
+Selfies & Close-ups Never look better
+The high performance flash automatically calculates surrounding brightness and adjusts shutter speed accordingly- no need for any special settings.</p>
+  <div class="buttons">
+    <span class="Price">$ 20 </span>
+    <button class="btn chart">Buy Now</button>
+      <button class="btn bookmark"><i class="far fa-heart"></i></button>
+    </div>
+  </div>
+  </div>
+  </div>
+
+<br><br>
+
+<input type="text" name="searchpin" ng-model="searchpin" placeholder="Pls enter pincode" >
+<button  ng-click="serchpin()" ng-repeat="pin in pincode |  filter: searchpin "> Serch</button>
+
+<p style="color:red"> {{msg}}</p>
+
+<br><br>
+
+<input type="search" name="productss" ng-model="searchPRO" placeholder=" enter product name">
+<ul>
+  <li ng-repeat= "p in productlist | filter:searchPRO">{{p.pname}}</li>
+    </ul>
+</div>
+
+<script>
+  var app = angular.module("mymodule",[]);
+  app.controller('mycontroller',function($scope){
+
+  $scope.pincode=["421605","400603","400037","400604","4000060"];
+  $scope.productlist=[{'pname': 'canon', 'id':0765},
+                     {'pname': 'Instax mini 11', 'id':98733},
+                      {  'pname':'Nikon D90 DX','id': 89765}];
+
+    $scope.userlist = [{
+      fname:'shalini',
+      lname:'Tripathi',
+      email:'tripathishalini789@gmail.com',
+      psd:'shalini123',
+},
+     {
+      fname:'akash',
+      lname:'sharma',
+      email:'AK67@gmail.com',
+      psd:'789ok',
+    },
+
+
+
+        ];
+
+        $scope.addrecords = function(){
+
+        var f = document.getElementById('fname').value;
+        var l = document.getElementById('lname').value;
+        var useremail = document.getElementById('email').value;
+          var pswd = document.getElementById('psd').value;
+
+
+        $scope.userlist.push({'fname':f, 'lname': l,'email':useremail,  'psd':pswd ,});
+
+        }
+
+      $scope.statelist = ['Maharastra','rajesthan','Gujrat','utrakhand','karnatka'];
+      $scope.Citylist = ["Mumbai","Delhi","Bangalore","Hyderabad","pune","kanpoor","ahemdabad","surat","nakpoor","patna","karachi","ranchi"];
+
+
+          $scope.adds =function(){
+
+          $scope.check=false
+          $scope.fail=false
+
+          console.log(email_index=$scope.userlist.findIndex(x=>x.email===$scope.email1))
+          console.log(psd_index=$scope.userlist.findIndex(x=>x.psd===$scope.psd1))
+
+
+          if( (psd_index===email_index ) && psd_index>=0 && email_index >=0 ){
+
+          	$scope.check=true
+
+          }else{
+
+          	$scope.check=false;
+          	$scope.fail=true
+          }
+
+          }
+
+
+              $scope.serchpin= function(){
+                $scope.msg = "";
+              if($scope.pincode.indexOf($scope.pincode)==-1)
+              {
+                 $scope.msg="Pincode is Available";
+                      }
+                     else{
+                         $scope.msg = "sorry ! this Pincode is not available";
+                     }
+                  }
+
+
+
+
+    });
+  </script>
+</body>
+</html>
